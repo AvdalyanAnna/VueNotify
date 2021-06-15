@@ -48,7 +48,7 @@ import Notify from "@/components/Notify";
 import Preloader from "@/components/UI/Preloader";
 
 
-import axios from 'axios';
+// import axios from 'axios';
 
 export default {
   name: "NotifyPage",
@@ -58,8 +58,6 @@ export default {
   },
   data() {
     return {
-      loading: true,
-      error:null,
     }
   },
   mounted() {
@@ -68,6 +66,12 @@ export default {
   computed: {
     message() {
       return this.$store.getters.getMessageMain;
+    },
+    error(){
+      return this.$store.getters.getError;
+    },
+    loading(){
+      return this.$store.getters.getLoading;
     }
   },
   methods: {
@@ -77,31 +81,9 @@ export default {
       }, 1800)
     },
     getNotify() {
-      this.loading = true;
-      axios.get('https://tocode.ru/static/_secret/courses/1/notifyApi.php')
-          .then(response => {
-            let res = response.data.notify,
-                message = [],
-                messagesMain = [];
-
-            //filter
-            for (let i = 0; i < res.length; i++) {
-              if(res[i].main) messagesMain.push(res[i])
-              else message.push(res[i])
-            }
-
-            this.$store.dispatch('setMessage', message)
-            this.$store.dispatch('setMessageMain', messagesMain)
-
-          })
-          .catch(error => {
-            console.log(error)
-            this.error = "Error: Network Error";
-          })
-          .finally(() => (this.loading = false))
+      this.$store.dispatch('notify')
     }
   }
-
 }
 </script>
 
