@@ -18,13 +18,10 @@
 
 <script>
 export default {
-  props: {
-    messages: {
-      type: Array,
-      required: true
-    }
-  },
   computed:{
+    messages() {
+      return this.$store.getters.getMessageMain;
+    },
     maxLength(){
       return this.$store.getters.getMessageFilter.length;
     }

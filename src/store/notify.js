@@ -52,7 +52,7 @@ export default {
                     commit('setError', "Error: Network Error")
                 })
             .finally(() => (commit('setLoading', false)))
-        }
+        },
     },
     getters: {
         getMessage(state) {

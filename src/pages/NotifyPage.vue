@@ -30,7 +30,6 @@
             <!-- notify -->
             <Notify
                 v-if="!loading && !error"
-                :messages="message"
             />
           </div>
 
@@ -47,26 +46,16 @@ import Notify from "@/components/Notify";
 //UI
 import Preloader from "@/components/UI/Preloader";
 
-
-// import axios from 'axios';
-
 export default {
-  name: "NotifyPage",
   components: {
     Notify,
     Preloader
-  },
-  data() {
-    return {
-    }
   },
   mounted() {
     this.getNotifyLazy()
   },
   computed: {
-    message() {
-      return this.$store.getters.getMessageMain;
-    },
+
     error(){
       return this.$store.getters.getError;
     },
