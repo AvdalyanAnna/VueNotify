@@ -1,16 +1,15 @@
-import Vue from "vue";
-import Vuex from "vuex"
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+import notify from '@/store/notify'
+import error from '@/store/error'
+import loading from '@/store/loading'
 Vue.use(Vuex)
 
-import notify from "@/store/notify";
-import error from "@/store/error";
-import loading from "@/store/loading";
-
-
 export default new Vuex.Store({
-    modules: {
-        notify,
-        error,
-        loading
-    }
+  modules: {
+    notify,
+    error,
+    loading
+  }
 })

@@ -44,8 +44,8 @@
 import Notify from "@/components/Notify";
 
 //UI
-import Preloader from "@/components/UI/Preloader";
-import { mapGetters } from 'vuex';
+import Preloader from "@/components/UI/Preloader"
+import { mapGetters } from 'vuex'
 export default {
   components: {
     Notify,
