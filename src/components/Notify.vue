@@ -1,40 +1,41 @@
 <template>
-  <table>
-    <transition-group name="list" tag="tbody">
-      <tr v-for="message in messages" :key="message.title">
-        <td><span>{{ message.title }}</span></td>
-      </tr>
-    </transition-group>
-
+  <div>
+    <table>
+      <transition-group name='list' tag='tbody'>
+        <tr v-for='message in messages' :key='message.title'>
+          <td><span>{{ message.title }}</span></td>
+        </tr>
+      </transition-group>
+    </table>
     <button
-        @click="loadMode"
-        :disabled="maxLength === 0"
-        :class="{btnDisabled: maxLength === 0}"
-        class="btn btnPrimary">
+        @click='loadMode'
+        :disabled='maxLength === 0'
+        :class='{btnDisabled: maxLength === 0}'
+        class='btn btnPrimary'>
       Load More
     </button>
-  </table>
+  </div>
 </template>
 
 <script>
 export default {
-  computed:{
-    messages() {
-      return this.$store.getters.getMessageMain;
+  computed: {
+    messages () {
+      return this.$store.getters.getMessageMain
     },
-    maxLength(){
-      return this.$store.getters.getMessageFilter.length;
+    maxLength () {
+      return this.$store.getters.getMessageFilter.length
     }
   },
   methods: {
-    loadMode() {
+    loadMode () {
       this.$store.dispatch('loadMessages')
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 table {
   text-align: center;
 }
