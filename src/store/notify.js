@@ -1,9 +1,8 @@
 import loadMore from "@/assets/js/loadMore";
 import axios from "axios";
 export default {
-
     state: {
-        messages: [],
+        loadingmessages: [],
         messageMain: []
     },
     mutations: {
@@ -55,20 +54,9 @@ export default {
         },
     },
     getters: {
-        getMessage(state) {
-            return state.messages;
-        },
-
-        getMessageFilter(state) {
-            return state.messages.filter(mes => {
-                return mes.main === false
-            });
-        },
-        getNotify(state) {
-            return state.messages;
-        },
-        getMessageMain(state) {
-            return state.messageMain;
-        }
+        getMessage: state => state.messages,
+        getMessageFilter: state => state.messages.filter(mes => mes.main === false ),
+        getNotify: state => state.messages,
+        getMessageMain: state => state.messageMain,
     }
 }

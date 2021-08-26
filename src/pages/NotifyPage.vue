@@ -45,7 +45,7 @@ import Notify from "@/components/Notify";
 
 //UI
 import Preloader from "@/components/UI/Preloader";
-
+import { mapGetters } from 'vuex';
 export default {
   components: {
     Notify,
@@ -55,13 +55,10 @@ export default {
     this.getNotifyLazy()
   },
   computed: {
-
-    error(){
-      return this.$store.getters.getError;
-    },
-    loading(){
-      return this.$store.getters.getLoading;
-    }
+    ...mapGetters({
+      error:'getError',
+      loading:'getLoading'
+    })
   },
   methods: {
     getNotifyLazy() {

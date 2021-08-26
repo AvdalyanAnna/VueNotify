@@ -1,7 +1,6 @@
 export default {
     state: {
         error: false
-        // error: "Error: Network Error"
     },
     mutations: {
         setError(state, payload) {
@@ -14,8 +13,6 @@ export default {
         }
     },
     getters: {
-        getError(state){
-            return state.error;
-        }
+        getError: state => state.error,
     }
 }
