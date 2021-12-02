@@ -25,4 +25,4 @@ See [more info about Routers](https://router.vuejs.org/).
 
 ### VueX
 See [more info about VuwX](https://vuex.vuejs.org/).
-
+![alt text](src/assets/Screenshot_1.png)
